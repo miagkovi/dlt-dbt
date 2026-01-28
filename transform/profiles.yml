@@ -1,0 +1,7 @@
+transform: # profile name, matches the profile in dbt_project.yml
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../my_pipeline.duckdb'  # path to your DuckDB database file
+      threads: 1
