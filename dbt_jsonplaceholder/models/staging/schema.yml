@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_posts
+    description: "Staging model for posts data from JSONPlaceholder API."
+    columns:
+      - name: user_id
+        description: "The ID of the user who created the post."
+        tests:
+          - not_null
+      - name: id
+        description: "The unique ID of the post."
+        tests:
+          - not_null
+          - unique
+          - dbt_utils.expression_is_true:
+              expression: "id > 0"
+      - name: title
+        description: "The title of the post."
+        tests:
+          - not_null
+      - name: body
+        description: "The content of the post."
+        tests:
+          - not_null
