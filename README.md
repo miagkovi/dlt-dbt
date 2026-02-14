@@ -11,11 +11,9 @@ Storage: DuckDB (In-process OLAP database)
 Transformation: dbt (data build tool)
 
 ### 📂 Project Structure
-load_data.py: Python script using dlt to fetch data from API and load it into DuckDB.
+load_posts.py: Python script using dlt to fetch data from API and load it into DuckDB.
 
-transform/: dbt project directory containing SQL transformations.
-
-data/: Directory for the .duckdb database file.
+dbt_jsonplaceholder/: dbt project directory containing SQL transformations.
 
 ### 🚀 Getting Started
 1. Environment Setup
@@ -30,14 +28,14 @@ pip install "dlt[duckdb]" dbt-duckdb
 Executes the dlt pipeline to fetch raw data.
 
 ```Bash
-python load_data.py
+python ./ingestion/load_posts.py
 ```
 
 3. Run Transformations (T)
 Navigate to the dbt project and execute models.
 
 ```Bash
-cd transform
+cd dbt_jsonplaceholder
 dbt deps --profiles-dir .
 dbt build --profiles-dir .
 ```
