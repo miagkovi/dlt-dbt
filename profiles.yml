@@ -1,0 +1,9 @@
+pizza_transform:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../pizza_ingestion.duckdb' # Path relative to the models
+      extensions:
+        - icu
+        - parquet
