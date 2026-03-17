@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: pizza_raw_data # A logical name for our source
+    schema: raw_pizza    # This MUST match the dataset_name in your dlt script
+    tables:
+      - name: order_details # Match the table name dlt created
+      - name: orders
+      - name: pizzas
+      - name: pizza_types
