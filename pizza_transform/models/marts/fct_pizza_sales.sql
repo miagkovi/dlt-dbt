@@ -21,7 +21,7 @@ select
     p.size,
     p.price,
     od.quantity,
-    -- Calculate total revenue per line item
+    -- Calculate total price per line item
     (od.quantity * p.price) as total_price
 from order_details od
 left join pizzas p on od.pizza_id = p.pizza_id

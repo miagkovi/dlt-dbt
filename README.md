@@ -1,9 +1,6 @@
-# dlt-dbt
+# Data Engineering Pipeline: dlt + dbt + DuckDB
 
-## Data Engineering Pipeline: dlt + dbt + DuckDB
-A modern local data stack project demonstrating a complete ELT (Extract, Load, Transform) workflow.
-
-Dataset source https://www.kaggle.com/datasets/ylenialongo/pizza-sales
+Dataset: https://www.kaggle.com/datasets/ylenialongo/pizza-sales 
 
 Install dependencies:
 
@@ -11,19 +8,25 @@ Install dependencies:
 pip3 install -r requirements.txt
 ```
 
-Run dataset load script:
+Load dataset (creates `pizza_ingestion.duckdb` file):
 
 ```
 python3 load.py
 ```
 
-Run dbt in `pizza_transform` dir:
+Go to dbt project:
+
+```
+cd pizza_transform/
+```
+
+Run dbt:
 
 ```
 dbt run --profiles-dir ..
 ```
 
-Run tests
+Run tests:
 
 ```
 dbt test --profiles-dir ..
