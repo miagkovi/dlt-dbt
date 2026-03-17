@@ -1,1 +1,0 @@
-select id, user_id, title, body from {{ source('raw', 'posts') }}
