@@ -22,3 +22,9 @@ Run dbt in `pizza_transform` dir:
 ```
 dbt run --profiles-dir ..
 ```
+
+Run tests
+
+```
+dbt test --profiles-dir ..
+```
