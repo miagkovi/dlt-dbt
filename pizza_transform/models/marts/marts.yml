@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fct_pizza_sales
+    description: "The main table for pizza sales analytics, joining orders, details, and pizza types."
+    columns:
+      - name: order_detail_id
+        tests:
+          - unique
+          - not_null
+      - name: total_price
+        tests:
+          - not_null

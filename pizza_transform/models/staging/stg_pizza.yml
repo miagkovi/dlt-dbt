@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_order_details
+    columns:
+      - name: order_detail_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
+
+  - name: stg_pizzas
+    columns:
+      - name: pizza_id
+        tests:
+          - unique
+          - not_null
+      - name: price
+        tests:
+          - not_null
+
+  - name: stg_pizza_types
+    columns:
+      - name: pizza_type_id
+        tests:
+          - unique
+          - not_null
