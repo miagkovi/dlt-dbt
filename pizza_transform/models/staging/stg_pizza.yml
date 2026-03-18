@@ -8,6 +8,15 @@ models:
         tests:
           - unique
           - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: order_time
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.equal_row_count:
+          compare_model: source('pizza_raw_data', 'orders')
 
   - name: stg_order_details
     description: "Staging model for order details, ensuring data quality and consistency."
@@ -22,6 +31,9 @@ models:
       - name: quantity
         tests:
           - not_null
+    tests:
+      - dbt_utils.equal_row_count:
+          compare_model: source('pizza_raw_data', 'order_details')
 
   - name: stg_pizzas
     description: "Staging model for pizzas, standardizing pizza data for further analysis."
@@ -33,6 +45,12 @@ models:
       - name: price
         tests:
           - not_null
+      - name: size
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.equal_row_count:
+          compare_model: source('pizza_raw_data', 'pizzas')
 
   - name: stg_pizza_types
     description: "Staging model for pizza types, ensuring data integrity and consistency."
@@ -50,3 +68,6 @@ models:
       - name: ingredients
         tests:
           - not_null
+    tests:
+      - dbt_utils.equal_row_count:
+          compare_model: source('pizza_raw_data', 'pizza_types')

@@ -20,6 +20,12 @@ Go to dbt project:
 cd pizza_transform/
 ```
 
+Install the packages:
+
+```
+dbt deps --profiles-dir ..
+```
+
 Run dbt:
 
 ```
@@ -30,4 +36,10 @@ Run tests:
 
 ```
 dbt test --profiles-dir ..
+```
+
+Clean and Compile:
+
+```
+dbt clean && dbt compile --profiles-dir ..
 ```

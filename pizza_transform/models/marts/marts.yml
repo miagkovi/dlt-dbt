@@ -3,6 +3,9 @@ version: 2
 models:
   - name: fct_pizza_sales
     description: "The main table for pizza sales analytics, joining orders, details, and pizza types."
+    tests:
+      - dbt_utils.equal_row_count:
+          compare_model: ref('stg_order_details')
     columns:
       - name: order_detail_id
         tests:
@@ -11,3 +14,8 @@ models:
       - name: total_price
         tests:
           - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: category
+        tests:
+          - dbt_utils.at_least_one
