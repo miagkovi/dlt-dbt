@@ -1,5 +1,17 @@
 # Data Engineering Pipeline: dlt + dbt + DuckDB
 
+Educational data engineering ELT pipeline. Tech stack:
+1. kagglehub - data provider's client
+2. dlt - data load tool
+3. dbt - database build tool
+4. duckdb - analytics ligthweigth database
+
+kaggle dataset (pizza sales) -> dlt -> duckdb (raw) -> dbt -> duckdb (stage, final)
+
+dbt transformations:
+
+raw (source) -> stage -> marts (fct_pizza_sales)
+
 Dataset: https://www.kaggle.com/datasets/ylenialongo/pizza-sales 
 
 Install dependencies:
